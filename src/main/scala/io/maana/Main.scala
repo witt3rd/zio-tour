@@ -72,7 +72,9 @@ object Looping extends App {
     else effect *> repeat(n - 1)(effect)
 
   def run(args: List[String]): ZIO[ZEnv, Nothing, ExitCode] =
-    repeat(100)(putStrLn("All work and no play makes Jack a dull boy")) as ExitCode.success
+    repeat(100)(
+      putStrLn("All work and no play makes Jack a dull boy")
+    ).exitCode // as ExitCode.success
 }
 
 object PromptName extends App {
